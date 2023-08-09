@@ -1,9 +1,12 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-export default {
+// Vytvoříme konfigurační objekt pomocí defineConfig pro lepší type hinting a autodoplňování v editoru
+export default defineConfig({
+  plugins: [vue()],  // Přidáme plugin Vue.js
+
   build: {
-    outDir: 'dist',
-    base: '/kubanek2/'
+    outDir: 'dist',  // Definuje výstupní složku
+    base: '/kubanek_final/'  // Nastaví veřejnou cestu pro GitHub Pages
   }
-}
+})

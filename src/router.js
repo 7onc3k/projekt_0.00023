@@ -4,6 +4,7 @@ import About from './views/About.vue'
 import EShop from './views/EShop.vue'
 
 const routes = [
+  { path: '/', redirect: '/chapters' },  // Přesměrování z kořenové cesty na /chapters
   { path: '/chapters', component: Chapters },
   { path: '/about', component: About },
   { path: '/e-shop', component: EShop },
