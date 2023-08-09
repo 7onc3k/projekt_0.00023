@@ -7,6 +7,6 @@ export default defineConfig({
 
   build: {
     outDir: 'dist',  // Definuje výstupní složku
-    base: '/kubanek_final/'  // Nastaví veřejnou cestu pro GitHub Pages
+    base: '/projekt_0.00023/'  // Nastaví veřejnou cestu pro GitHub Pages
   }
 })
