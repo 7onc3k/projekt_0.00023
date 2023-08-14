@@ -1,9 +1,29 @@
 <template>
   <nav :class="{ scrolled: hasScrolled }">
-    <div class="logo">
-      <img src="../assets/logo.png" alt="Logo" />
+    <div>
+      <router-link to="/home">
+        <img class="logo" src="../assets/logo.png" alt="Logo" />
+      </router-link>
     </div>
     <div class="links">
+      <router-link
+        to="/home"
+        class="link"
+        @mouseover="handleHover($event, '/')"
+        @mouseleave="cancelNavigation"
+      >
+        HOME
+        <svg class="circle" viewBox="0 0 100 100">
+          <path
+            class="circle-background"
+            d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80"
+          />
+          <path
+            class="circle-path"
+            d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80"
+          />
+        </svg>
+      </router-link>
       <router-link
         to="/chapters"
         class="link"
@@ -59,6 +79,14 @@
         </svg>
       </router-link>
     </div>
+    <div
+      class="scroll-line left"
+      :style="{ width: scrollLineWidth + '%' }"
+    ></div>
+    <div
+      class="scroll-line right"
+      :style="{ width: scrollLineWidth + '%' }"
+    ></div>
   </nav>
 </template>
 
@@ -72,13 +100,24 @@ export default {
     const hasScrolled = ref(false);
     const router = useRouter();
     let navigationTimeout = null;
+    const scrollLineWidth = ref(0);
 
     const handleScroll = () => {
       hasScrolled.value = window.scrollY > 0;
+
+      // Výpočet výšky, kterou můžeme skutečně vyscrollovat
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      // Výpočet procentuálního vyscrollování stránky
+      const scrolledPercentage = (window.scrollY / scrollableHeight) * 100;
+
+      // Protože máme dvě čáry, rozdělíme procento na půl
+      scrollLineWidth.value = Math.min(scrolledPercentage / 2, 50); // Omezíme hodnotu na max. 50%
     };
 
     const handleHover = (event, path) => {
-      navigationTimeout=setTimeout(() => {
+      navigationTimeout = setTimeout(() => {
         router.push(path);
       }, 2000); // 2 sekundy, což odpovídá délce animace
     };
@@ -95,7 +134,7 @@ export default {
       window.removeEventListener("scroll", handleScroll);
     });
 
-    return { hasScrolled, handleHover, cancelNavigation }; // Make sure to return cancelNavigation
+    return { hasScrolled, handleHover, cancelNavigation, scrollLineWidth }; // Make sure to return cancelNavigation
   },
 };
 </script>
@@ -125,6 +164,7 @@ export default {
 }
 
 nav {
+  z-index: 900;
   position: fixed;
   top: 0;
   width: 100%;
@@ -200,5 +240,22 @@ nav.scrolled {
     flex-direction: column;
     align-items: center;
   }
+}
+nav .scroll-line {
+  position: absolute;
+  bottom: 0;
+  height: 3px; /* Výška čáry - můžete upravit dle potřeby */
+  background-color: var(--color); /* Barva čáry */
+  transition: width 0.3s ease; /* Animace pro hladký pohyb čáry */
+}
+
+nav .scroll-line.left {
+  left: 50%;
+  transform: translateX(-100%);
+}
+
+nav .scroll-line.right {
+  right: 50%;
+  transform: translateX(100%);
 }
 </style>

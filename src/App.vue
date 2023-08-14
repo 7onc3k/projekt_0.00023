@@ -1,22 +1,31 @@
 <template>
-  <Navbar />
-  <router-view @chapter-changed="updateStyles" />
-  <Footer />
+  <div id="app">
+    <LoadingOverlay @overlayHidden="handleOverlayHidden" />
+    <Navbar />
+    <router-view @chapter-changed="updateStyles" />
+    <Footer />
+  </div>
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue'
 import Footer from './components/Footer.vue'
+import LoadingOverlay from './components/LoadingOverlay.vue'  // Přidáno
 
 export default {
   components: {
     Navbar,
-    Footer
+    Footer,
+    LoadingOverlay  // Přidáno
   },
   methods: {
     updateStyles({ font, color }) {
       document.documentElement.style.setProperty('--font', font);
       document.documentElement.style.setProperty('--color', color);
+    },
+    handleOverlayHidden() {  // Přidáno
+      console.log("Overlay je skrytý");
+      // Zde můžete vykonat další akce, pokud je to třeba
     }
   },
   created() {
@@ -36,4 +45,5 @@ body {
   font-family: var(--font), sans-serif;
   color: var(--color);
 }
+
 </style>
