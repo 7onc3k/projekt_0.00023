@@ -48,7 +48,7 @@ footer {
 }
 
 .container {
-  width: 98%;
+  width: 75%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
