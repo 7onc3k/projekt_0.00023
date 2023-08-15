@@ -2,10 +2,12 @@
   <footer>
     <div class="container">
       <div class="contact">
+        
         <h2>Contact</h2>
-        <p><i class="fas fa-envelope"></i> example@example.com</p>
-        <p><i class="fas fa-phone"></i> 123-456-7890</p>
-        <p><i class="fab fa-instagram"></i> example</p>
+        <p><a href="https://www.instagram.com/0.00023_project/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> 0.00023_project</a></p>
+        <p><a href="https://www.youtube.com/channel/UCRhzXvSDFAsV2NzBP6rFjiA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> ZeroTwenty3</a></p>
+        <p><a href="https://www.tiktok.com/@your_username" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a></p>
+      
       </div>
       <div class="newsletter">
         <h2>Newsletter</h2>
@@ -23,7 +25,7 @@
       </div>
     </div>
     <div class="logo-column">
-      <img src="../assets/logo.png" alt="Logo" class="logo" />
+      <img src="../assets/logo_znak.png" alt="Logo" class="logo" />
       <p class="logo-text">Website by Tony Nguyen</p>
     </div>
   </footer>
@@ -48,23 +50,28 @@ footer {
 }
 
 .container {
-  width: 75%;
+  width: 75%; /* upravená šířka kontejneru */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* zajistí stejný prostor mezi sloupci */
   align-items: flex-start;
+  margin: 0 auto; /* vycentruje kontejner na střed stránky */
 }
 
 .contact,
 .newsletter,
 .links {
-  flex: 1;
+  flex: 1;  /* zajistí, že všechny sloupce budou mít stejnou šířku */
   text-align: center;
   padding: 0.5em;
+  margin: 0 15px; /* přidáváme okraje na stranách pro každý sloupec */
 }
+
 
 .contact {
   text-align: left;
 }
+
+
 
 .links {
   text-align: right;
@@ -117,6 +124,7 @@ button {
   height: 50px;
   margin-bottom: 0;
   margin-top: 20px;
+  margin-bottom: 15px;
 }
 
 .logo-text {

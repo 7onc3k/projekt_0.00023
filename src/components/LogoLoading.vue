@@ -46,6 +46,8 @@
     font-weight: bold;
     margin-bottom: 2em;
     font-family: "Gunplay Damage", Courier, monospace; 
+    color: rgba(157,27,30,255)
+
   }
   </style>
   

@@ -27,7 +27,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(this.hideOverlay, 2200);
+    setTimeout(this.hideOverlay, 3200);
   }
 };
 </script>

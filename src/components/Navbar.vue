@@ -79,14 +79,6 @@
         </svg>
       </router-link>
     </div>
-    <div
-      class="scroll-line left"
-      :style="{ width: scrollLineWidth + '%' }"
-    ></div>
-    <div
-      class="scroll-line right"
-      :style="{ width: scrollLineWidth + '%' }"
-    ></div>
   </nav>
 </template>
 
@@ -249,13 +241,6 @@ nav .scroll-line {
   transition: width 0.3s ease; /* Animace pro hladký pohyb čáry */
 }
 
-nav .scroll-line.left {
-  left: 50%;
-  transform: translateX(-100%);
-}
 
-nav .scroll-line.right {
-  right: 50%;
-  transform: translateX(100%);
-}
+
 </style>
