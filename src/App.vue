@@ -46,4 +46,12 @@ body {
   color: var(--color);
 }
 
+@font-face {
+  font-family: 'Gunplay Damage';
+  src: url('./assets/gunplay_damage.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 </style>

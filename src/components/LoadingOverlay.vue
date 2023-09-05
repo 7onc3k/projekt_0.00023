@@ -1,7 +1,7 @@
 <template>
-    <div v-if="visible" class="overlay" :style="{opacity: overlayOpacity}">
-      <LogoLoading />
-    </div>
+  <div v-if="visible" class="overlay" :style="{opacity: overlayOpacity}">
+    <LogoLoading in-overlay />
+  </div>
 </template>
 
 <script>
