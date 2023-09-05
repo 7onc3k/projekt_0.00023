@@ -42,7 +42,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 1);
+    background-image: linear-gradient(to right, white, black);
     z-index: 1000;
     transition: opacity 1s;  
     padding-top: 150px;

@@ -1,7 +1,7 @@
 <template>
   <div
     class="number-display"
-    :style="{ '--text-color': inOverlay ? 'gray' : 'rgba(157, 27, 30, 255)' }"
+    :style="{ '--text-color': inOverlay ? 'rgba(218,218,218,255)' : 'rgba(157, 27, 30, 255)' }"
   >
     {{ animatedNumber }}
   </div>
