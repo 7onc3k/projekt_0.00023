@@ -44,6 +44,7 @@ export default {
 body {
   font-family: var(--font), sans-serif;
   color: var(--color);
+  overflow-x: hidden;
 }
 
 @font-face {

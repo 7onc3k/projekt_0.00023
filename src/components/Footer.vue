@@ -4,9 +4,9 @@
       <div class="contact">
         
         <h2>Contact</h2>
-        <p><a href="https://www.instagram.com/0.00023_project/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> 0.00023_project</a></p>
-        <p><a href="https://www.youtube.com/channel/UCRhzXvSDFAsV2NzBP6rFjiA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> ZeroTwenty3</a></p>
-        <p><a href="https://www.tiktok.com/@your_username" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a></p>
+        <p><a href="https://www.instagram.com/0.00023_project/" target="_blank" rel="noopener noreferrer"> INSTAGRAM</a></p>
+        <p><a href="https://www.youtube.com/channel/UCRhzXvSDFAsV2NzBP6rFjiA" target="_blank" rel="noopener noreferrer"> YOUTUBE</a></p>
+        <p><a href="https://www.tiktok.com/@your_username" target="_blank" rel="noopener noreferrer">TIKTOK</a></p>
       
       </div>
       <div class="newsletter">

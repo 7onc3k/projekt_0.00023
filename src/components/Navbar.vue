@@ -61,6 +61,24 @@
         </svg>
       </router-link>
       <router-link
+        to="/contact"
+        class="link"
+        @mouseover="handleHover($event, '/contact')"
+        @mouseleave="cancelNavigation"
+      >
+        CONTACT US
+        <svg class="circle" viewBox="0 0 100 100">
+          <path
+            class="circle-background"
+            d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80"
+          />
+          <path
+            class="circle-path"
+            d="M50 10 a 40 40 0 0 1 0 80 a 40 40 0 0 1 0 -80"
+          />
+        </svg>
+      </router-link>
+      <router-link
         to="/e-shop"
         class="link"
         @mouseover="handleHover($event, '/e-shop')"
@@ -78,6 +96,7 @@
           />
         </svg>
       </router-link>
+      
     </div>
   </nav>
 </template>
