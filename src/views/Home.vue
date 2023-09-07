@@ -51,7 +51,7 @@
     mounted() {
       setInterval(() => {
         this.carouselMove();
-      }, 3000);
+      }, 10000);
     },
     methods: {
       carouselMove() {
