@@ -45,11 +45,12 @@
   background-size: cover;
   text-align: center;
   padding: 10em;
-  padding-top: 220px;
+  padding-top: 150px;
   padding-bottom: 300px;
   z-index: -1;
   color: var(--color);
   font-family: var(--font), sans-serif;
+  height: 600px;
 }
 
 .title {

@@ -60,7 +60,8 @@ export default {
 .text-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center the text vertically */
+  justify-content: center; 
+  z-index: 25;/* Center the text vertically */
 }
 .justify-end {
   align-items: flex-start; /* Align the text to the right */
