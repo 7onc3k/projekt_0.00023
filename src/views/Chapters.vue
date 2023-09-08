@@ -1,112 +1,148 @@
 <template>
-  <div class="chapters">
-    <div :class="{ 'chapter-buttons': true, 'move-to-bottom': showCarousel }">
-      <button class="chapter-button" @click="toggleCarousel(1)">Chapter I.</button>
-      <button class="chapter-button" @click="toggleCarousel(2)">Chapter II.</button>
-      <button class="chapter-button" @click="toggleCarousel(3)">Chapter III.</button>
+  <div class="container">
+    <div v-for="section in sections" :key="section.id" class="section-container">
+      <h1>{{ section.title }}</h1>
+      
+      <vueper-slides 
+        class="no-shadow"
+        :visible-slides="3"
+        slide-multiple
+        :gap="10"
+        :dragging-distance="200"
+        :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
+      >
+        <vueper-slide 
+          v-for="slide in section.slides" 
+          :key="slide.id"
+          :image="slide.image"
+          
+        >
+        <template v-slot:content>
+              <div class="caption-container">
+                {{ slide.caption }}
+              </div>
+            </template>
+        </vueper-slide>
+        
+      </vueper-slides>
     </div>
-    <transition name="fade">
-      <Carousel v-if="showCarousel" :items="carouselItems" />
-    </transition>
   </div>
 </template>
 
-
 <script>
-import Carousel from '../components/Carousel.vue';
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 
 export default {
   components: {
-    Carousel,
+    VueperSlides,
+    VueperSlide
   },
   data() {
     return {
-      showCarousel: false,
-      carouselItems: [],
-    };
-  },
-  methods: {
-    toggleCarousel(chapter) {
-      this.showCarousel = !this.showCarousel;
-      this.carouselItems = this.getCarouselItemsForChapter(chapter);
-    },
-    getCarouselItemsForChapter(chapter) {
-      const importImage = (name) => {
-        return new URL(`../assets/carousel/chapter${chapter}/${name}.jpg`, import.meta.url).href;
-      };
-
-      switch (chapter) {
-        case 1:
-          return [
-            {
-              image: importImage('0.00023_001'),
-              description: 'Popisek 1',
-            },
-            {
-              image: importImage('0.00023_002'),
-              description: 'Popisek 2',
-            },
-            // ...
-          ];
-        case 2:
-          return [
-            // Add carousel items for chapter 2
-          ];
-        case 3:
-          return [
-            // Add carousel items for chapter 3
-          ];
-        default:
-          return [];
-      }
-    },
-  },
-};
+      sections: [
+        {
+          id: 1,
+          title: 'Chapter I',
+          slides: [
+            { id: 1, image: "/src/assets/carousel/chapter1/0.00023_001.jpg", caption: "Popisek 1" },
+            { id: 2, image: "/src/assets/carousel/chapter1/0.00023_002.jpg", caption: "Popisek 2" },
+            { id: 3, image: "/src/assets/carousel/chapter1/0.00023_003.jpg", caption: "Popisek 3" },
+            { id: 4, image: "/src/assets/carousel/chapter1/0.00023_004.jpg", caption: "Popisek 1" },
+            { id: 5, image: "/src/assets/carousel/chapter1/0.00023_005.jpg", caption: "Popisek 2" },
+            { id: 6, image: "/src/assets/carousel/chapter1/0.00023_006.jpg", caption: "Popisek 3" },
+          ]
+        },
+        {
+          id: 2,
+          title: 'Chapter II',
+          slides: [
+            { id: 1, image: "/src/assets/carousel/chapter1/0.00023_001.jpg", caption: "Popisek 1" },
+            { id: 2, image: "/src/assets/carousel/chapter1/0.00023_002.jpg", caption: "Popisek 2" },
+            { id: 3, image: "/src/assets/carousel/chapter1/0.00023_003.jpg", caption: "Popisek 3" },
+            { id: 4, image: "/src/assets/carousel/chapter1/0.00023_004.jpg", caption: "Popisek 1" },
+            { id: 5, image: "/src/assets/carousel/chapter1/0.00023_005.jpg", caption: "Popisek 2" },
+            { id: 6, image: "/src/assets/carousel/chapter1/0.00023_006.jpg", caption: "Popisek 3" },
+          ]
+        },
+      ]
+    }
+  }
+}
 </script>
 
-
 <style scoped>
-/* Styles */
-</style>
+.container {
+  padding-top: 70px;
+  text-align: center;
+  background-image: url('../assets/seamless_background.jpeg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center center;
+  
+}
 
-<style scoped>
-.chapters {
-  background: url("../assets/background.jpeg") no-repeat center center fixed;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.section-container {
+  margin: 0 150px 0 150px;
+  text-align: center;
+  
+}
+
+h1 {
+  font-family: "gunplay damage";
+  color: rgba(157, 27, 30, 255);
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.vueper-slides {
   position: relative;
 }
 
-.chapter-buttons {
-  transition: all 0.5s ease;
+
+
+
+:deep(.vueperslides__inner) {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
-.chapter-buttons.move-to-bottom {
+
+.vueper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
+
+.vueper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.caption-container {
   position: absolute;
   bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 5px 0;
 }
 
-.chapter-button {
-  font-family: "Gunplay Damage", sans-serif;
-  font-size: 40px;
-  color: #951812;
-  text-decoration: none;
-  margin: 50px;
-  background: none;
-  border: none;
-  cursor: pointer;
+.vueper-slides .ps__arrow-prev, .vueper-slides .ps__arrow-next {
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 3%;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
 
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
+
+
+
 </style>

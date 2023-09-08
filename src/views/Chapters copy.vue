@@ -34,7 +34,7 @@ export default {
       {
         title: "Chapter 1",
         font: "Montserrat",
-        color: "#F26344",
+        color: "#000000",
         sections: [
           {
             image: obrazek1,
@@ -53,7 +53,7 @@ export default {
       {
         title: "Chapter 2",
         font: "Times New Roman",
-        color: "#555",
+        color: "#000000",
         sections: [
           {
             image: obrazek1,
@@ -92,3 +92,5 @@ export default {
   },
 };
 </script>
+
+
