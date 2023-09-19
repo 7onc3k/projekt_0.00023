@@ -45,27 +45,28 @@ export default {
           id: 1,
           title: 'Chapter I',
           slides: [
-            { id: 1, image: "/src/assets/carousel/chapter1/0.00023_001.jpg", caption: "Popisek 1" },
-            { id: 2, image: "/src/assets/carousel/chapter1/0.00023_002.jpg", caption: "Popisek 2" },
-            { id: 3, image: "/src/assets/carousel/chapter1/0.00023_003.jpg", caption: "Popisek 3" },
-            { id: 4, image: "/src/assets/carousel/chapter1/0.00023_004.jpg", caption: "Popisek 1" },
-            { id: 5, image: "/src/assets/carousel/chapter1/0.00023_005.jpg", caption: "Popisek 2" },
-            { id: 6, image: "/src/assets/carousel/chapter1/0.00023_006.jpg", caption: "Popisek 3" },
+            { id: 1, image: "public/carousel/chapter1/0.00023_001.jpg", caption: "Popisek 1" },
+            { id: 2, image: "public/carousel/chapter1/0.00023_002.jpg", caption: "Popisek 2" },
+            { id: 3, image: "public/carousel/chapter1/0.00023_003.jpg", caption: "Popisek 3" },
+            { id: 4, image: "public/carousel/chapter1/0.00023_004.jpg", caption: "Popisek 1" },
+            { id: 5, image: "public/carousel/chapter1/0.00023_005.jpg", caption: "Popisek 2" },
+            { id: 6, image: "public/carousel/chapter1/0.00023_006.jpg", caption: "Popisek 3" },
           ]
         },
         {
           id: 2,
           title: 'Chapter II',
           slides: [
-            { id: 1, image: "/src/assets/carousel/chapter1/0.00023_001.jpg", caption: "Popisek 1" },
-            { id: 2, image: "/src/assets/carousel/chapter1/0.00023_002.jpg", caption: "Popisek 2" },
-            { id: 3, image: "/src/assets/carousel/chapter1/0.00023_003.jpg", caption: "Popisek 3" },
-            { id: 4, image: "/src/assets/carousel/chapter1/0.00023_004.jpg", caption: "Popisek 1" },
-            { id: 5, image: "/src/assets/carousel/chapter1/0.00023_005.jpg", caption: "Popisek 2" },
-            { id: 6, image: "/src/assets/carousel/chapter1/0.00023_006.jpg", caption: "Popisek 3" },
+            { id: 1, image: "public/carousel/chapter2/0.00023_001.jpg", caption: "Popisek 1" }, // Upravil jsem "chapter1" na "chapter2"
+            { id: 2, image: "public/carousel/chapter2/0.00023_002.jpg", caption: "Popisek 2" },
+            { id: 3, image: "public/carousel/chapter2/0.00023_003.jpg", caption: "Popisek 3" },
+            { id: 4, image: "public/carousel/chapter2/0.00023_004.jpg", caption: "Popisek 1" },
+            { id: 5, image: "public/carousel/chapter2/0.00023_005.jpg", caption: "Popisek 2" },
+            { id: 6, image: "public/carousel/chapter2/0.00023_006.jpg", caption: "Popisek 3" },
           ]
         },
       ]
+
     }
   }
 }
