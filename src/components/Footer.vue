@@ -3,10 +3,10 @@
     <div class="container">
       <div class="contact">
         
-        <h2>Contact</h2>
+        <h3>Follow us</h3>
         <p><a href="https://www.instagram.com/0.00023_project/" target="_blank" rel="noopener noreferrer"> INSTAGRAM</a></p>
-        <p><a href="https://www.youtube.com/channel/UCRhzXvSDFAsV2NzBP6rFjiA" target="_blank" rel="noopener noreferrer"> YOUTUBE</a></p>
-        <p><a href="https://www.tiktok.com/@your_username" target="_blank" rel="noopener noreferrer">TIKTOK</a></p>
+        <p><a href="https://www.youtube.com/@023_project" target="_blank" rel="noopener noreferrer"> YOUTUBE</a></p>
+        <p><a href="https://www.tiktok.com/@0_00023r?_t=8fu1PpULuNN&_r=1" target="_blank" rel="noopener noreferrer">TIKTOK</a></p>
       
       </div>
       <div class="newsletter">
@@ -18,10 +18,12 @@
         </div>
       </div>
       <div class="links">
-        <h2>Links</h2>
-        <router-link to="/chapters">Chapters</router-link>
-        <router-link to="/about">About</router-link>
-        <router-link to="/e-shop">E-Shop</router-link>
+        <h3>Discover</h3>
+        <router-link to="/chapters">CHAPTERS</router-link>
+        <router-link to="/contact">CONTACT</router-link>
+        <router-link to="/about">ABOUT</router-link>
+        <router-link to="/e-shop">E-SHOP</router-link>
+        
       </div>
     </div>
     <div class="logo-column">
@@ -69,12 +71,16 @@ footer {
 
 .contact {
   text-align: left;
+  padding-top: 50px;
+  
 }
+
 
 
 
 .links {
   text-align: right;
+  padding-top: 50px;
 }
 
 h2 {
@@ -121,7 +127,7 @@ button {
 }
 
 .logo {
-  height: 50px;
+  height: 70px;
   margin-bottom: 0;
   margin-top: 20px;
   margin-bottom: 15px;
