@@ -65,6 +65,42 @@ export default {
             { id: 6, image: "carousel/chapter2/0.00023_006.jpg", caption: "Popisek 3" },
           ]
         },
+        {
+          id: 3,
+          title: 'Chapter III',
+          slides: [
+            { id: 1, image: "carousel/chapter2/0.00023_001.jpg", caption: "Popisek 1" }, // Upravil jsem "chapter1" na "chapter2"
+            { id: 2, image: "carousel/chapter2/0.00023_002.jpg", caption: "Popisek 2" },
+            { id: 3, image: "carousel/chapter2/0.00023_003.jpg", caption: "Popisek 3" },
+            { id: 4, image: "carousel/chapter2/0.00023_004.jpg", caption: "Popisek 1" },
+            { id: 5, image: "carousel/chapter2/0.00023_005.jpg", caption: "Popisek 2" },
+            { id: 6, image: "carousel/chapter2/0.00023_006.jpg", caption: "Popisek 3" },
+          ]
+        },
+        {
+          id: 4,
+          title: 'Chapter IV',
+          slides: [
+            { id: 1, image: "carousel/chapter2/0.00023_001.jpg", caption: "Popisek 1" }, // Upravil jsem "chapter1" na "chapter2"
+            { id: 2, image: "carousel/chapter2/0.00023_002.jpg", caption: "Popisek 2" },
+            { id: 3, image: "carousel/chapter2/0.00023_003.jpg", caption: "Popisek 3" },
+            { id: 4, image: "carousel/chapter2/0.00023_004.jpg", caption: "Popisek 1" },
+            { id: 5, image: "carousel/chapter2/0.00023_005.jpg", caption: "Popisek 2" },
+            { id: 6, image: "carousel/chapter2/0.00023_006.jpg", caption: "Popisek 3" },
+          ]
+        },
+        {
+          id: 5,
+          title: 'Chapter V',
+          slides: [
+            { id: 1, image: "carousel/chapter2/0.00023_001.jpg", caption: "Popisek 1" }, // Upravil jsem "chapter1" na "chapter2"
+            { id: 2, image: "carousel/chapter2/0.00023_002.jpg", caption: "Popisek 2" },
+            { id: 3, image: "carousel/chapter2/0.00023_003.jpg", caption: "Popisek 3" },
+            { id: 4, image: "carousel/chapter2/0.00023_004.jpg", caption: "Popisek 1" },
+            { id: 5, image: "carousel/chapter2/0.00023_005.jpg", caption: "Popisek 2" },
+            { id: 6, image: "carousel/chapter2/0.00023_006.jpg", caption: "Popisek 3" },
+          ]
+        },
       ]
 
     }
