@@ -1,9 +1,10 @@
 <template>
   <div class="container">
     <div v-for="section in sections" :key="section.id" class="section-container">
-      <h1>{{ section.title }}</h1>
+      <h1 @click="toggleSectionVisibility(section.id)">{{ section.title }}</h1>
       
       <vueper-slides 
+        v-if="visibleSectionId === section.id"
         class="no-shadow"
         :visible-slides="3"
         slide-multiple
@@ -15,15 +16,13 @@
           v-for="slide in section.slides" 
           :key="slide.id"
           :image="slide.image"
-          
         >
-        <template v-slot:content>
-              <div class="caption-container">
-                {{ slide.caption }}
-              </div>
-            </template>
+          <template v-slot:content>
+            <div class="caption-container">
+              {{ slide.caption }}
+            </div>
+          </template>
         </vueper-slide>
-        
       </vueper-slides>
     </div>
   </div>
@@ -40,6 +39,7 @@ export default {
   },
   data() {
     return {
+      visibleSectionId: null,
       sections: [
         {
           id: 1,
@@ -68,6 +68,15 @@ export default {
       ]
 
     }
+  },
+  methods: {
+    toggleSectionVisibility(sectionId) {
+      if (this.visibleSectionId === sectionId) {
+        this.visibleSectionId = null;
+      } else {
+        this.visibleSectionId = sectionId;
+      }
+    }
   }
 }
 </script>
@@ -80,6 +89,7 @@ export default {
     background-repeat: repeat;
     background-size: auto;
     background-position: center center;
+    min-height: calc(100vh - 70px);
   
 }
 

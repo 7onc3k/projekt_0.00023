@@ -1,10 +1,13 @@
 import os
 from PIL import Image
+import pillow_avif
 
 def kompresuj_obrazek(soubor, kvalita=85):
     with Image.open(soubor) as obrazek:
         obrazek = obrazek.convert("RGB")
-        obrazek.save(soubor, "JPEG", quality=kvalita)
+        avif_soubor = os.path.splitext(soubor)[0] + ".avif"
+        obrazek.save(avif_soubor, "AVIF", quality=kvalita)
+    os.remove(soubor)
 
 def main():
     aktualni_slozka = os.path.dirname(os.path.realpath(__file__))
@@ -16,9 +19,9 @@ def main():
         try:
             kompresuj_obrazek(cesta_k_souboru)
             procentualni_hotovost = (index / celkovy_pocet) * 100
-            print(f"Obrázek {soubor} byl úspěšně zkompresován. Hotovo: {procentualni_hotovost:.2f}%")
+            print(f"Obrázek {soubor} byl úspěšně převeden na AVIF. Hotovo: {procentualni_hotovost:.2f}%")
         except Exception as chyba:
-            print(f"Při kompresi obrázku {soubor} došlo k chybě: {chyba}")
+            print(f"Při převodu obrázku {soubor} do AVIF došlo k chybě: {chyba}")
 
 if __name__ == "__main__":
     main()
