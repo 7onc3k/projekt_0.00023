@@ -1,27 +1,40 @@
-import os
 from PIL import Image
-import pillow_avif
+import os
+from io import BytesIO
 
-def kompresuj_obrazek(soubor, kvalita=85):
-    with Image.open(soubor) as obrazek:
-        obrazek = obrazek.convert("RGB")
-        avif_soubor = os.path.splitext(soubor)[0] + ".avif"
-        obrazek.save(avif_soubor, "AVIF", quality=kvalita)
+def komprimuj_a_convertuj(soubor):
+    # Otevření obrázku pomocí PIL
+    s_obrazek = Image.open(soubor)
+    
+    # Kvalita komprese - začínáme na 90, můžete upravit dle potřeby
+    kvalita = 90
+    
+    while True:
+        buffer = BytesIO()  # Použití BytesIO místo listu
+        # Uložení obrázku do bufferu s danou kvalitou
+        s_obrazek.save(buffer, "WEBP", quality=kvalita)
+        
+        # Pokud je velikost obrázku menší než 1 MB, ukončíme cyklus
+        if len(buffer.getvalue()) < 1 * 1024 * 1024:
+            break
+        
+        # Snížení kvality o 5% pro další iteraci
+        kvalita -= 5
+
+        # Kontrola, aby kvalita neklesla pod 10%
+        if kvalita < 10:
+            print(f"Obrázek {soubor} nelze stáhnout pod 1MB s dostatečnou kvalitou.")
+            return
+
+    # Smazání původního souboru
     os.remove(soubor)
 
-def main():
-    aktualni_slozka = os.path.dirname(os.path.realpath(__file__))
-    seznam_obrazku = [s for s in os.listdir(aktualni_slozka) if s.lower().endswith(('.png', '.jpg', '.jpeg'))]
-    celkovy_pocet = len(seznam_obrazku)
-    
-    for index, soubor in enumerate(seznam_obrazku, 1):
-        cesta_k_souboru = os.path.join(aktualni_slozka, soubor)
-        try:
-            kompresuj_obrazek(cesta_k_souboru)
-            procentualni_hotovost = (index / celkovy_pocet) * 100
-            print(f"Obrázek {soubor} byl úspěšně převeden na AVIF. Hotovo: {procentualni_hotovost:.2f}%")
-        except Exception as chyba:
-            print(f"Při převodu obrázku {soubor} do AVIF došlo k chybě: {chyba}")
+    # Uložení obrázku s konečnou kvalitou do souboru
+    s_obrazek.save(soubor, "WEBP", quality=kvalita)
+    print(f"Obrázek {soubor} byl uložen s kvalitou {kvalita}%.")
 
 if __name__ == "__main__":
-    main()
+    # Iterace přes všechny soubory ve složce
+    for soubor in os.listdir():
+        if soubor.lower().endswith(('.png', '.jpg', '.jpeg')):
+            komprimuj_a_convertuj(soubor)
